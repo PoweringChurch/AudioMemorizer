@@ -1,0 +1,32 @@
+[
+{
+  "directory": "D:/Else/StereoVision/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/Main.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles/Main.dir/src/main.cpp.obj -c D:/Else/StereoVision/src/main.cpp",
+  "file": "D:/Else/StereoVision/src/main.cpp",
+  "output": "CMakeFiles/Main.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/Else/StereoVision/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/Main.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles/Main.dir/src/analyzer.cpp.obj -c D:/Else/StereoVision/src/analyzer.cpp",
+  "file": "D:/Else/StereoVision/src/analyzer.cpp",
+  "output": "CMakeFiles/Main.dir/src/analyzer.cpp.obj"
+},
+{
+  "directory": "D:/Else/StereoVision/build",
+  "command": "C:/msys64/mingw64/bin/g++.exe  @CMakeFiles/Main.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles/Main.dir/src/processor.cpp.obj -c D:/Else/StereoVision/src/processor.cpp",
+  "file": "D:/Else/StereoVision/src/processor.cpp",
+  "output": "CMakeFiles/Main.dir/src/processor.cpp.obj"
+},
+{
+  "directory": "D:/Else/StereoVision/build",
+  "command": "C:/msys64/mingw64/bin/gcc.exe  @CMakeFiles/Main.dir/includes_C.rsp -g -o CMakeFiles/Main.dir/libs/kiss_fft.c.obj -c D:/Else/StereoVision/libs/kiss_fft.c",
+  "file": "D:/Else/StereoVision/libs/kiss_fft.c",
+  "output": "CMakeFiles/Main.dir/libs/kiss_fft.c.obj"
+},
+{
+  "directory": "D:/Else/StereoVision/build",
+  "command": "C:/msys64/mingw64/bin/gcc.exe  @CMakeFiles/Main.dir/includes_C.rsp -g -o CMakeFiles/Main.dir/libs/kiss_fftr.c.obj -c D:/Else/StereoVision/libs/kiss_fftr.c",
+  "file": "D:/Else/StereoVision/libs/kiss_fftr.c",
+  "output": "CMakeFiles/Main.dir/libs/kiss_fftr.c.obj"
+}
+]

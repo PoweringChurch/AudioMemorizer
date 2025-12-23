@@ -1,0 +1,3 @@
+D:/Else/StereoVision/build/CMakeFiles/Main.dir
+D:/Else/StereoVision/build/CMakeFiles/edit_cache.dir
+D:/Else/StereoVision/build/CMakeFiles/rebuild_cache.dir
