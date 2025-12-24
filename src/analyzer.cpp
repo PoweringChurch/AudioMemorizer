@@ -35,7 +35,7 @@ float get_peak_freq(const int& sampleRate, const std::vector<kiss_fft_cpx>& spec
     return maxBin*(sampleRate/FFT_SIZE); 
 }
 
-float get_centroid(const int& sampleRate, const std::vector<kiss_fft_cpx>& spectrum_buffer) {
+float get_brightness(const int& sampleRate, const std::vector<kiss_fft_cpx>& spectrum_buffer) {
     float w_sum = 0.0f; //weighted sum
     float m_sum = 0.0f; //magnitude sum
     for (int i = 0; i < spectrum_buffer.size(); i++) {

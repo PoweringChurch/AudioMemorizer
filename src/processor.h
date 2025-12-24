@@ -2,6 +2,8 @@
 #define PROCESSOR_H
 
 #include "analyzer.h"
+#include "memorizer.h"
+#include <ctime>
 
 class Processor {
 public:
@@ -11,8 +13,9 @@ public:
 private:    
     float prevAmplitude;
     kiss_fftr_cfg cfg;
-    std::vector<float> float_buffer;
-    std::vector<kiss_fft_cpx> spectrum_buffer;
+    std::vector<float> floatBuffer;
+    std::vector<kiss_fft_cpx> spectrumBuffer;
+    std::vector<Feature> collectedFeatures;
 };
 
 #endif // PROCESSOR_H
