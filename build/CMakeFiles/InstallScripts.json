@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"D:/Else/StereoVision/build/cmake_install.cmake"
+		"D:/Else/AudioMemorizer/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/Else/StereoVision/libs/kiss_fft.c" "CMakeFiles/Main.dir/libs/kiss_fft.c.obj" "gcc" "CMakeFiles/Main.dir/libs/kiss_fft.c.obj.d"
-  "D:/Else/StereoVision/libs/kiss_fftr.c" "CMakeFiles/Main.dir/libs/kiss_fftr.c.obj" "gcc" "CMakeFiles/Main.dir/libs/kiss_fftr.c.obj.d"
-  "D:/Else/StereoVision/src/analyzer.cpp" "CMakeFiles/Main.dir/src/analyzer.cpp.obj" "gcc" "CMakeFiles/Main.dir/src/analyzer.cpp.obj.d"
-  "D:/Else/StereoVision/src/main.cpp" "CMakeFiles/Main.dir/src/main.cpp.obj" "gcc" "CMakeFiles/Main.dir/src/main.cpp.obj.d"
-  "D:/Else/StereoVision/src/processor.cpp" "CMakeFiles/Main.dir/src/processor.cpp.obj" "gcc" "CMakeFiles/Main.dir/src/processor.cpp.obj.d"
+  "D:/Else/AudioMemorizer/libs/kiss_fft.c" "CMakeFiles/Main.dir/libs/kiss_fft.c.obj" "gcc" "CMakeFiles/Main.dir/libs/kiss_fft.c.obj.d"
+  "D:/Else/AudioMemorizer/libs/kiss_fftr.c" "CMakeFiles/Main.dir/libs/kiss_fftr.c.obj" "gcc" "CMakeFiles/Main.dir/libs/kiss_fftr.c.obj.d"
+  "D:/Else/AudioMemorizer/src/analyzer.cpp" "CMakeFiles/Main.dir/src/analyzer.cpp.obj" "gcc" "CMakeFiles/Main.dir/src/analyzer.cpp.obj.d"
+  "D:/Else/AudioMemorizer/src/main.cpp" "CMakeFiles/Main.dir/src/main.cpp.obj" "gcc" "CMakeFiles/Main.dir/src/main.cpp.obj.d"
+  "D:/Else/AudioMemorizer/src/processor.cpp" "CMakeFiles/Main.dir/src/processor.cpp.obj" "gcc" "CMakeFiles/Main.dir/src/processor.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

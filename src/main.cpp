@@ -7,31 +7,16 @@
 #include <string>
 #include <sstream>
 
-#include <filesystem>
-
-namespace fs = std::filesystem;
-
-
+//build with
+//mingw32-make
+//YOU NEED TO BE IN BUILD FOLDER cd build
+//because cmake is being a little bitch ass piece of shit rn
 Processor p = Processor();
 
 void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount) {
     int16_t* samples = (int16_t*)pInput; 
     int sampleCount = frameCount * pDevice->capture.channels;
     p.process(samples,sampleCount,pDevice->sampleRate);
-}
-int get_memory_selection() {
-    std::cout << "Select a memory file to load" << std::endl;
-    std::string input;
-    std::cin >> input;
-    std::stringstream ss(input);
-
-    int index;
-    ss >> index;
-    if (ss.fail()) {
-        std::cout << "Index is not an integer" << std::endl;
-        return get_memory_selection();
-    }
-    return index;
 }
 int get_input_index() {   
     std::cout << "Select a device" << std::endl;
@@ -76,11 +61,6 @@ int main() {
     
     if (ma_context_get_devices(&context, &playbackInfos, &playbackCount, &captureInfos, &captureCount) != MA_SUCCESS) {
         return -1;
-    }
-    //print folder content
-    std::string path = "../data";
-    for (const auto& entry : fs::recursive_directory_iterator(path)) {
-        std::cout << entry.path() << std::endl;
     }
 
     //mode selection

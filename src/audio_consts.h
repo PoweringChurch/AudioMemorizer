@@ -1,7 +1,8 @@
 #ifndef AUDIO_CONSTANTS_H
 #define AUDIO_CONSTANTS_H
 
-constexpr int FFT_SIZE = 1024;
-constexpr float AMPLITUDE_THRESHOLD = 0.15f;
+constexpr int FFT_SIZE = 2048;
+constexpr float AMPLITUDE_THRESHOLD = 0.05f;
+constexpr float SEPERATION_THRESHOLD = 0.2f;
 
 #endif

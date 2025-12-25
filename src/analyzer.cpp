@@ -21,20 +21,35 @@ void update_spectrum(int16_t* samples, const int& sampleCount, std::vector<float
     }
     kiss_fftr(cfg,float_buffer.data(),spectrum_buffer.data());
 }
-
-float get_peak_freq(const int& sampleRate, const std::vector<kiss_fft_cpx>& spectrum_buffer) {
-    int maxBin = 0;
-    float maxMagnitude = 0;
-    for (int i = 1; i < spectrum_buffer.size(); i++) {
-        int magnitude = _cpx_magnitude(spectrum_buffer[i]);
-        if (magnitude > maxMagnitude) {
-            maxBin = i;
-            maxMagnitude = magnitude;
+/// @brief Gets the peak frequencies in a spectrum
+/// @param sampleRate 
+/// @param spectrum_buffer 
+/// @return 
+std::array<float, 6> get_peak_freqs(const int& sampleRate, const std::vector<kiss_fft_cpx>& spectrum_buffer) {
+    std::array<float, 6> result{};
+    std::array<float, 6> magnitudes{};
+    //get the n (6) highest magnitudes out of the buffer
+    for (int bin = 1; bin < spectrum_buffer.size(); bin++) {
+        float magnitude = _cpx_magnitude(spectrum_buffer[bin]);
+        if (magnitude < AMPLITUDE_THRESHOLD) continue;
+        
+        for (int i = 0; i < 6; i++) {
+            if (magnitude > magnitudes[i]) {
+                //shift
+                for (int j = 5; j > i; j--) {
+                    magnitudes[j] = magnitudes[j-1];
+                    result[j] = result[j-1];
+                }
+                //insert
+                magnitudes[i] = magnitude;
+                result[i] = bin * (sampleRate / (FFT_SIZE * 2.0f)); //frequency calculation
+                break; 
+            }
         }
-    }
-    return maxBin*(sampleRate/FFT_SIZE); 
-}
 
+    }
+    return result; //literally no clue why its consistently always half the expected result but idk 
+}
 float get_brightness(const int& sampleRate, const std::vector<kiss_fft_cpx>& spectrum_buffer) {
     float w_sum = 0.0f; //weighted sum
     float m_sum = 0.0f; //magnitude sum

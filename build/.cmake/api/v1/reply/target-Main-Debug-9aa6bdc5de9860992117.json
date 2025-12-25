@@ -28,13 +28,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 22,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 9,
+				"line" : 23,
 				"parent" : 0
 			},
 			{
@@ -52,7 +46,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 13,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 14,
 				"parent" : 0
 			}
 		]
@@ -75,19 +75,19 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "D:/Else/StereoVision/libs/miniaudio"
+					"path" : "D:/Else/AudioMemorizer/libs/miniaudio"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "D:/Else/StereoVision/libs/kiss_fftr"
+					"path" : "D:/Else/AudioMemorizer/libs/kiss_fftr"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "D:/Else/StereoVision/libs/kiss_fft"
+					"path" : "D:/Else/AudioMemorizer/libs/kiss_fft"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "D:/Else/StereoVision/include"
+					"path" : "D:/Else/AudioMemorizer/include"
 				}
 			],
 			"language" : "CXX",
@@ -117,19 +117,19 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "D:/Else/StereoVision/libs/miniaudio"
+					"path" : "D:/Else/AudioMemorizer/libs/miniaudio"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "D:/Else/StereoVision/libs/kiss_fftr"
+					"path" : "D:/Else/AudioMemorizer/libs/kiss_fftr"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "D:/Else/StereoVision/libs/kiss_fft"
+					"path" : "D:/Else/AudioMemorizer/libs/kiss_fft"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "D:/Else/StereoVision/include"
+					"path" : "D:/Else/AudioMemorizer/include"
 				}
 			],
 			"language" : "C",
