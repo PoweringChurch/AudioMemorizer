@@ -18,16 +18,20 @@ void Processor::process(int16_t* samples, const int& sampleCount, const int& sam
     activeChunk.push_back(peaks); //insert into active
 
     float amp = RMS(samples, sampleCount);
+
     if (abs(amp - prevAmp) > SEPERATION_THRESHOLD) { //seperate
-        cout << "seperation threshold hit" << endl;
+        auto start = std::chrono::high_resolution_clock::now();
         int bestMatch = comparator.find_best_match(activeChunk);
         if (bestMatch == -1) {
             comparator.store_chunk(activeChunk);
-            cout << "match not found" << endl;
+            cout << RED << "match not found" << RESET <<endl;
         } else {
-            cout << "match found" << endl;
+            cout << GREEN << "match found" << RESET << endl;
         }
         activeChunk.clear();
+        auto end = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+        cout << BLUE << duration.count() << " microseconds" << RESET << endl;
     }
     prevAmp = amp;
 }

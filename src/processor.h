@@ -4,6 +4,8 @@
 #include "analyzer.h"
 #include "comparator.h"
 
+
+
 using namespace std;
 class Processor {
 public:
