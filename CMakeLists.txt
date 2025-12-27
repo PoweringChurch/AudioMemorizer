@@ -17,6 +17,7 @@ set(SOURCES
     src/main.cpp
     src/analyzer.cpp
     src/processor.cpp
+    src/comparator.cpp
     libs/kiss_fft.c
     libs/kiss_fftr.c
 )

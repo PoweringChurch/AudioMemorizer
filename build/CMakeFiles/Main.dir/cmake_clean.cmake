@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Main.dir/libs/kiss_fftr.c.obj.d"
   "CMakeFiles/Main.dir/src/analyzer.cpp.obj"
   "CMakeFiles/Main.dir/src/analyzer.cpp.obj.d"
+  "CMakeFiles/Main.dir/src/comparator.cpp.obj"
+  "CMakeFiles/Main.dir/src/comparator.cpp.obj.d"
   "CMakeFiles/Main.dir/src/main.cpp.obj"
   "CMakeFiles/Main.dir/src/main.cpp.obj.d"
   "CMakeFiles/Main.dir/src/processor.cpp.obj"

@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/Else/AudioMemorizer/libs/kiss_fft.c" "CMakeFiles/Main.dir/libs/kiss_fft.c.obj" "gcc" "CMakeFiles/Main.dir/libs/kiss_fft.c.obj.d"
   "D:/Else/AudioMemorizer/libs/kiss_fftr.c" "CMakeFiles/Main.dir/libs/kiss_fftr.c.obj" "gcc" "CMakeFiles/Main.dir/libs/kiss_fftr.c.obj.d"
   "D:/Else/AudioMemorizer/src/analyzer.cpp" "CMakeFiles/Main.dir/src/analyzer.cpp.obj" "gcc" "CMakeFiles/Main.dir/src/analyzer.cpp.obj.d"
+  "D:/Else/AudioMemorizer/src/comparator.cpp" "CMakeFiles/Main.dir/src/comparator.cpp.obj" "gcc" "CMakeFiles/Main.dir/src/comparator.cpp.obj.d"
   "D:/Else/AudioMemorizer/src/main.cpp" "CMakeFiles/Main.dir/src/main.cpp.obj" "gcc" "CMakeFiles/Main.dir/src/main.cpp.obj.d"
   "D:/Else/AudioMemorizer/src/processor.cpp" "CMakeFiles/Main.dir/src/processor.cpp.obj" "gcc" "CMakeFiles/Main.dir/src/processor.cpp.obj.d"
   )

@@ -2,7 +2,9 @@
 #define PROCESSOR_H
 
 #include "analyzer.h"
+#include "comparator.h"
 
+using namespace std;
 class Processor {
 public:
     Processor();
@@ -11,10 +13,13 @@ public:
 private:    
     float prevAmp;
     kiss_fftr_cfg cfg;
-    std::vector<float> floatBuffer;
-    std::vector<kiss_fft_cpx> spectrumBuffer;
-    std::vector<std::array<float,6>> activeChunk;
-    std::vector<int> memoryHash;
+
+    vector<float> floatBuffer;
+    vector<kiss_fft_cpx> spectrumBuffer;
+    vector<vector<float>> activeChunk;
+    vector<int> memoryHash;
+
+    Comparator comparator;
 };
 
 #endif // PROCESSOR_H

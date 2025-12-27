@@ -184,4 +184,23 @@ CMakeFiles/Main.dir/src/processor.cpp.obj: \
  C:/msys64/ucrt64/include/string.h \
  C:/msys64/ucrt64/include/sec_api/string_s.h \
  C:/msys64/ucrt64/include/c++/15.2.0/iostream \
+ D:\Else\AudioMemorizer\src\comparator.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/unordered_map \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/unordered_map.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/hashtable_policy.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/ext/aligned_buffer.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/enable_special_members.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/node_handle.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/erase_if.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/algorithm \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_algo.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/algorithmfwd.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_heap.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/uniform_int_dist.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/stl_tempbuf.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algo.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/bits/ranges_algobase.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/pstl/glue_algorithm_defs.h \
+ C:/msys64/ucrt64/include/c++/15.2.0/pstl/execution_defs.h \
  D:\Else\AudioMemorizer\src\audio_consts.h

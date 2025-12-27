@@ -25,29 +25,43 @@ void update_spectrum(int16_t* samples, const int& sampleCount, std::vector<float
 /// @param sampleRate 
 /// @param spectrum_buffer 
 /// @return 
-std::array<float, 6> get_peak_freqs(const int& sampleRate, const std::vector<kiss_fft_cpx>& spectrum_buffer) {
-    std::array<float, 6> result{};
-    std::array<float, 6> magnitudes{};
-    //get the n (6) highest magnitudes out of the buffer
+std::vector<float> get_peak_freqs(const int& sampleRate, const std::vector<kiss_fft_cpx>& spectrum_buffer) {
+    std::vector<float> result;
+    std::vector<float> magnitudes;
+    result.reserve(6);
+    magnitudes.reserve(6);
+    // get up to 6 highest magnitudes out of the buffer
     for (int bin = 1; bin < spectrum_buffer.size(); bin++) {
         float magnitude = _cpx_magnitude(spectrum_buffer[bin]);
         if (magnitude < AMPLITUDE_THRESHOLD) continue;
-        
-        for (int i = 0; i < 6; i++) {
+        // find insertion point
+        int insertPos = -1;
+        for (int i = 0; i < magnitudes.size(); i++) {
             if (magnitude > magnitudes[i]) {
-                //shift
-                for (int j = 5; j > i; j--) {
-                    magnitudes[j] = magnitudes[j-1];
-                    result[j] = result[j-1];
-                }
-                //insert
-                magnitudes[i] = magnitude;
-                result[i] = bin * (sampleRate / (FFT_SIZE * 2.0f)); //frequency calculation
-                break; 
+                insertPos = i;
+                break;
             }
         }
-
+        // if found a spot or haven't hit 6 yet
+        if (insertPos != -1 || magnitudes.size() < 6) {
+            float frequency = bin * (sampleRate / (FFT_SIZE * 2.0f));
+            if (insertPos == -1 /*looks weird but the || m.size < 6 makes this valid*/) {
+                magnitudes.push_back(magnitude);
+                result.push_back(frequency);
+            } else {
+                // insert
+                magnitudes.insert(magnitudes.begin() + insertPos, magnitude);
+                result.insert(result.begin() + insertPos, frequency);
+                
+                // keep only top 6
+                if (magnitudes.size() > 6) {
+                    magnitudes.pop_back();
+                    result.pop_back();
+                }
+            }
+        }
     }
+
     return result; //literally no clue why its consistently always half the expected result but idk 
 }
 float get_brightness(const int& sampleRate, const std::vector<kiss_fft_cpx>& spectrum_buffer) {

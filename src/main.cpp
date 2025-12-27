@@ -7,10 +7,13 @@
 #include <string>
 #include <sstream>
 
-//build with
-//mingw32-make
+/*build with 
+>> cmake -G "MinGW Makefiles" ..
+>> "mingw32-make"
+*/
+
 //YOU NEED TO BE IN BUILD FOLDER cd build
-//because cmake is being a little bitch ass piece of shit rn
+//if it still dont work lowk just murder cmake devs
 Processor p = Processor();
 
 void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount) {

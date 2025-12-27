@@ -200,6 +200,30 @@ src/analyzer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Main.dir\build.make CMakeFiles/Main.dir/src/analyzer.cpp.s
 .PHONY : src/analyzer.cpp.s
 
+src/comparator.obj: src/comparator.cpp.obj
+.PHONY : src/comparator.obj
+
+# target to build an object file
+src/comparator.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Main.dir\build.make CMakeFiles/Main.dir/src/comparator.cpp.obj
+.PHONY : src/comparator.cpp.obj
+
+src/comparator.i: src/comparator.cpp.i
+.PHONY : src/comparator.i
+
+# target to preprocess a source file
+src/comparator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Main.dir\build.make CMakeFiles/Main.dir/src/comparator.cpp.i
+.PHONY : src/comparator.cpp.i
+
+src/comparator.s: src/comparator.cpp.s
+.PHONY : src/comparator.s
+
+# target to generate assembly for a file
+src/comparator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Main.dir\build.make CMakeFiles/Main.dir/src/comparator.cpp.s
+.PHONY : src/comparator.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -266,6 +290,9 @@ help:
 	@echo ... src/analyzer.obj
 	@echo ... src/analyzer.i
 	@echo ... src/analyzer.s
+	@echo ... src/comparator.obj
+	@echo ... src/comparator.i
+	@echo ... src/comparator.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

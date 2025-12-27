@@ -19,6 +19,12 @@
 },
 {
   "directory": "D:/Else/AudioMemorizer/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\c++.exe  @CMakeFiles/Main.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\Main.dir\\src\\comparator.cpp.obj -c D:\\Else\\AudioMemorizer\\src\\comparator.cpp",
+  "file": "D:/Else/AudioMemorizer/src/comparator.cpp",
+  "output": "CMakeFiles/Main.dir/src/comparator.cpp.obj"
+},
+{
+  "directory": "D:/Else/AudioMemorizer/build",
   "command": "C:\\msys64\\ucrt64\\bin\\cc.exe  @CMakeFiles/Main.dir/includes_C.rsp -g -o CMakeFiles\\Main.dir\\libs\\kiss_fft.c.obj -c D:\\Else\\AudioMemorizer\\libs\\kiss_fft.c",
   "file": "D:/Else/AudioMemorizer/libs/kiss_fft.c",
   "output": "CMakeFiles/Main.dir/libs/kiss_fft.c.obj"
