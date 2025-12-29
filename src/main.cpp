@@ -8,8 +8,10 @@
 #include <sstream>
 
 /*build with 
+>> cd build
+delete cmakecache.txt and cmakefiles folder
 >> cmake -G "MinGW Makefiles" ..
->> "mingw32-make"
+>> mingw32-make
 */
 
 //YOU NEED TO BE IN BUILD FOLDER cd build

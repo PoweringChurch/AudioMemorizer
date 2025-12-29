@@ -39,11 +39,11 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel ..."
 				}
 			],
 			"type" : "STRING",
-			"value" : "Debug"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -554,18 +554,6 @@
 			"value" : ""
 		},
 		{
-			"name" : "CMAKE_EXPORT_COMPILE_COMMANDS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
-				}
-			],
-			"type" : "BOOL",
-			"value" : "TRUE"
-		},
-		{
 			"name" : "CMAKE_EXTRA_GENERATOR",
 			"properties" : 
 			[
@@ -671,7 +659,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/MyProject"
+			"value" : "C:/Program Files (x86)/Main"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -915,7 +903,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "MyProject"
+			"value" : "Main"
 		},
 		{
 			"name" : "CMAKE_PROJECT_SPDX_LICENSE",
@@ -1322,7 +1310,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "MyProject_BINARY_DIR",
+			"name" : "Main_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1334,7 +1322,7 @@
 			"value" : "D:/Else/AudioMemorizer/build"
 		},
 		{
-			"name" : "MyProject_IS_TOP_LEVEL",
+			"name" : "Main_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1346,7 +1334,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "MyProject_SOURCE_DIR",
+			"name" : "Main_SOURCE_DIR",
 			"properties" : 
 			[
 				{

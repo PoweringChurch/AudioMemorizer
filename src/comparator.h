@@ -7,6 +7,13 @@
 #include <unordered_map>
 #include <algorithm>
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define BLUE    "\033[34m"
+#include <iostream> 
+#include <chrono>
+
 using namespace std;
 
 struct AudioClip {

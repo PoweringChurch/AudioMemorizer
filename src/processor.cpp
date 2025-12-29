@@ -24,9 +24,6 @@ void Processor::process(int16_t* samples, const int& sampleCount, const int& sam
         int bestMatch = comparator.find_best_match(activeChunk);
         if (bestMatch == -1) {
             comparator.store_chunk(activeChunk);
-            cout << RED << "match not found" << RESET <<endl;
-        } else {
-            cout << GREEN << "match found" << RESET << endl;
         }
         activeChunk.clear();
         auto end = std::chrono::high_resolution_clock::now();

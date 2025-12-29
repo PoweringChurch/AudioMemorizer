@@ -1,7 +1,6 @@
 #include "comparator.h"
 
 constexpr float SIMILARITY_THRESHOLD = 0.1f;  // Adjust as needed
-constexpr float QUANTISE = 1.0f;
 
 int Comparator::find_best_match(const vector<vector<float>>& queryChunk) {
     int bestMatch = -1;
@@ -13,30 +12,38 @@ int Comparator::find_best_match(const vector<vector<float>>& queryChunk) {
             bestMatch = storedClips[i].clipId;
         }
     }
+
+    if (bestMatch == -1) {
+        cout << RED << "match not found" << RESET <<endl;
+    } else {
+        cout << GREEN << "match found" << RESET << endl;
+    }
+    cout << bestScore << endl;
+
     return bestMatch;
 }
 float Comparator::compare_chunk(const vector<vector<float>>& a, const vector<vector<float>>& b) {
     if (a.size() <= 1 || b.size() <= 1) return 0.0f;
     int matchScore = 0;
-    const float FREQ_TOLERANCE = 50.0f;  // Peaks within 50Hz are same enough
+    const float FREQ_TOLERANCE = 80.0f;  // fully arbitrary :3
     // For each time slice in 'a'
     for (int i = 0; i < a.size() - 1; i++) {
-        // For each peak in that slice
+        //for each peak in a
         for (float anchorFreq : a[i]) {
-            // Look for the next 3 peaks in future slices (constellation)
+            //look for the next 3 peaks in future slices (constellation)
             vector<float> pattern;
             for (int j = i + 1; j < min((int)a.size(), i + 4); j++) {
                 if (!a[j].empty()) {
-                    pattern.push_back(a[j][0]);  // Take first peak from next slices
+                    pattern.push_back(a[j][0]);  //take first peak from next slices
                 }
             }
-            if (pattern.size() < 3) continue;  // Need at least 3 points
-            // Search for this constellation in 'b'
+            if (pattern.size() < 3) continue;  //need at least 3 points
+            //search for this constellation in 'b'
             for (int ki = 0; ki < b.size() - 1; ki++) {
-                // Look for anchor frequency in this slice
+                //look for anchor frequency b slice
                 for (float bAnchor : b[ki]) {
                     if (abs(anchorFreq - bAnchor) < FREQ_TOLERANCE) {
-                        // Found anchor! Check if pattern matches
+                        //found the anchor, check if pattern matches
                         int localMatches = 0;
                         for (int px = 0; px < pattern.size() && ki + px + 1 < b.size(); px++) {
                             for (float bFreq : b[ki + px + 1]) {
@@ -52,9 +59,16 @@ float Comparator::compare_chunk(const vector<vector<float>>& a, const vector<vec
             }
         }
     }
-    return (float)matchScore / max(a.size(), b.size());
+    int totalAnchors = 0;
+    for (const auto& slice : a) {
+        totalAnchors += slice.size();
+    }
+    return totalAnchors > 0 ? float(matchScore)/totalAnchors : 0.0f;
+    //(float)matchScore / max(a.size(), b.size());
 }
+
 /* I HATE EVERYTHING
+note: day after writing this, still upset. legit got angry looking at this again
 float Comparator::compare_chunk(const vector<vector<float>>& a, const vector<vector<float>>& b) {
 
     constexpr int lookForward = 1;

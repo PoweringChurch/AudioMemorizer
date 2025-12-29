@@ -7,11 +7,11 @@ C_DEFINES =
 
 C_INCLUDES = @CMakeFiles/Main.dir/includes_C.rsp
 
-C_FLAGS = -g
+C_FLAGS = 
 
 CXX_DEFINES = 
 
 CXX_INCLUDES = @CMakeFiles/Main.dir/includes_CXX.rsp
 
-CXX_FLAGS = -g -std=gnu++20
+CXX_FLAGS = -std=gnu++20
 
