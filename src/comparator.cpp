@@ -18,7 +18,6 @@ unordered_map<size_t, vector<Fingerprint>> compute_fingerprints(const vector<vec
                 }
             }
             if (pattern.size() < 3) continue;
-            
             Fingerprint fp = {anchorFreq, pattern, i};
             size_t hash = hash_fingerprint(anchorFreq, pattern);
             fingerprints[hash].push_back(fp);

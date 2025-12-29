@@ -19,7 +19,7 @@
 using namespace std;
 
 const float FREQ_TOLERANCE = 80.0f;  // fully arbitrary :3 (should def do some calculations)
-constexpr float SIMILARITY_MINIMUM = 0.5f; //for use in find_best_match to filter out the garbo
+constexpr float SIMILARITY_MINIMUM = 0.95f; //for use in find_best_match to filter out the garbo
 
 
 struct Fingerprint {
