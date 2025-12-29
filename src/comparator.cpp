@@ -29,15 +29,15 @@ unordered_map<size_t, vector<Fingerprint>> compute_fingerprints(const vector<vec
 int Comparator::find_best_match(const vector<vector<float>>& queryChunk) {
     int bestMatch = -1;
     float bestScore = 0;
-
     //construct query AudioClip
     AudioClip queryClip = AudioClip();
     queryClip.fingerprints = compute_fingerprints(queryChunk);
-
+    if (queryClip.fingerprints.size() <= 4) return -2; //too short, invalid chunk
     //compare
+    cout << "fingerprints size : " << queryClip.fingerprints.size() << endl;
     for (int i = 0; i < storedClips.size(); i++) {
         float score = compare_fingerprints(queryClip.fingerprints, storedClips[i].fingerprints);
-        if (score > 0.02) 
+        if (score > 0.001)
             cout << storedClips[i].clipId << " comparison score : " << score << endl;
         if (score > bestScore && score > SIMILARITY_MINIMUM) { //if it has the best score so far and its higher than the minimum
             bestScore = score;
@@ -48,52 +48,55 @@ int Comparator::find_best_match(const vector<vector<float>>& queryChunk) {
     if (bestMatch == -1) {
         //store
         queryClip.clipId = nextId;
-        
         cout << RED << "match not found, stored clip at id : " << nextId << RESET << endl;
-
         nextId++;
         storedClips.push_back(move(queryClip));
 
     } else {
         cout << GREEN << "match found, id: " << bestMatch << RESET << endl;
     }
-    cout << bestScore << endl;
-
+    cout << "best score: "<< bestScore << endl;
     return bestMatch;
 }
 
 float Comparator::compare_fingerprints(const unordered_map<size_t, vector<Fingerprint>>& a, const unordered_map<size_t, vector<Fingerprint>>& b) {
     if (a.empty() || b.empty()) return 0.0f;
 
-    int totalFingerprints = 0;
-    for (const auto& [hash, fps] : a) totalFingerprints += fps.size();
-    
-    if (totalFingerprints == 0) return 0.0f;
+    size_t fpCountA = 0;
+    size_t fpCountB = 0;
+    for (const auto& [_, fps] : a) fpCountA += fps.size();
+    for (const auto& [_, fps] : b) fpCountB += fps.size();
+    if (fpCountA == 0 || fpCountB == 0) return 0.0f;
     
     int matchScore = 0;
+    //for each fingerprint (kv pair) in a
     for (const auto& [hash, fingerprints_a] : a) {
         //check if this hash exists in fingerprint set b
-        auto it = b.find(hash);
-        if (it == b.end()) continue;
-        const vector<Fingerprint>& fingerprints_b = it->second;
-        //compare all fingerprints with matching hash
+        auto it = b.find(hash); //look up hash in b
+        if (it == b.end()) continue; //if doesnt exist in b, skip
+        const vector<Fingerprint>& fingerprints_b = it->second; //get a read only reference to the fingerprints stored
+        
+        //compare fingerprints (value) a and b
         for (const Fingerprint& fp_a : fingerprints_a) {
             for (const Fingerprint& fp_b : fingerprints_b) {
                 //verify anchor frequency is actually close (handling hash collisions)
-                if (abs(fp_a.anchorFreq - fp_b.anchorFreq) >= FREQ_TOLERANCE) continue;
+                if (fabs(fp_a.anchorFreq - fp_b.anchorFreq) >= FREQ_TOLERANCE) continue; //probably gonna have to improve
                 //count how many pattern frequencies match
                 int localMatches = 0;
                 int minSize = min(fp_a.pattern.size(), fp_b.pattern.size());
-                
+                if (minSize == 0) continue; //this shouldnt ever occur
+
                 for (int px = 0; px < minSize; px++) {
-                    if (abs(fp_a.pattern[px] - fp_b.pattern[px]) < FREQ_TOLERANCE) 
+                    if (fabs(fp_a.pattern[px] - fp_b.pattern[px]) < FREQ_TOLERANCE) {
                         localMatches++;
+                    }
                 }
-                if (localMatches >= 3) matchScore++;
+                float ratio = localMatches / float(minSize);
+                if (ratio >= 0.6f) {matchScore++; break;}
             }
         }
     }
-    return (float)matchScore / totalFingerprints;
+    return (float)matchScore / max(fpCountA,fpCountB);
 }
 
 
