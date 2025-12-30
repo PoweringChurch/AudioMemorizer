@@ -12,10 +12,10 @@ float RMS(int16_t* samples, const int& sampleCount) {
     }
     return (float)sqrt(total/sampleCount);
 }
-/// @brief Gets the peak frequencies in a spectrum
+/// @brief Calculates the peak frequencies provided the device's sample rate and a spectrum buffer
 /// @param sampleRate 
 /// @param spectrum_buffer 
-/// @return 
+/// @return The calculated peak frequencies
 std::vector<float> get_peak_freqs(const int& sampleRate, const std::vector<kiss_fft_cpx>& spectrum_buffer) {
     std::vector<float> result;
     std::vector<float> magnitudes;
@@ -53,8 +53,9 @@ std::vector<float> get_peak_freqs(const int& sampleRate, const std::vector<kiss_
         }
     }
 
-    return result; //literally no clue why its consistently always half the expected result but idk 
+    return result;
 }
+/*
 float get_brightness(const int& sampleRate, const std::vector<kiss_fft_cpx>& spectrum_buffer) {
     float w_sum = 0.0f; //weighted sum
     float m_sum = 0.0f; //magnitude sum
@@ -66,3 +67,4 @@ float get_brightness(const int& sampleRate, const std::vector<kiss_fft_cpx>& spe
     }
     return w_sum/m_sum;
 }
+*/

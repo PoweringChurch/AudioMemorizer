@@ -32,7 +32,12 @@ int Comparator::find_best_match(const vector<vector<float>>& queryChunk) {
     AudioClip queryClip = AudioClip();
     queryClip.fingerprints = compute_fingerprints(queryChunk);
     if (queryClip.fingerprints.size() <= 4) return -2; //too short, invalid chunk
-    //compare
+
+    //get timestamp
+    auto now = chrono::system_clock::now();
+    auto ms = chrono::duration_cast<chrono::milliseconds>(now.time_since_epoch()).count();
+    queryClip.timeStamp = static_cast<uint64_t>(ms);
+    //compare2
     cout << "fingerprints size : " << queryClip.fingerprints.size() << endl;
     for (int i = 0; i < storedClips.size(); i++) {
         float score = compare_fingerprints(queryClip.fingerprints, storedClips[i].fingerprints);

@@ -30,7 +30,8 @@ struct Fingerprint {
 
 struct AudioClip {
     unordered_map<size_t, vector<Fingerprint>> fingerprints; //the computed fingerprints of an audio clip
-    int clipId; //the id associated with the clip
+    int clipId;             //the id associated with the clip
+    uint64_t timeStamp;     //time at which the audioclip was created
 };
 
 /// @brief hashes a fingerprint from an anchor and a pattern

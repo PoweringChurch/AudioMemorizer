@@ -28,19 +28,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 25,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 11,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 12,
+				"line" : 27,
 				"parent" : 0
 			},
 			{
@@ -52,7 +40,19 @@
 			{
 				"command" : 1,
 				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
 				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 16,
 				"parent" : 0
 			}
 		]
@@ -68,7 +68,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-std=gnu++20"
+					"fragment" : "-g -std=gnu++20"
 				}
 			],
 			"includes" : 
@@ -87,7 +87,7 @@
 				},
 				{
 					"backtrace" : 5,
-					"path" : "D:/Else/AudioMemorizer/include"
+					"path" : "D:/Else/AudioMemorizer/libs/json"
 				}
 			],
 			"language" : "CXX",
@@ -108,6 +108,12 @@
 			]
 		},
 		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				}
+			],
 			"includes" : 
 			[
 				{
@@ -124,7 +130,7 @@
 				},
 				{
 					"backtrace" : 5,
-					"path" : "D:/Else/AudioMemorizer/include"
+					"path" : "D:/Else/AudioMemorizer/libs/json"
 				}
 			],
 			"language" : "C",
@@ -140,6 +146,10 @@
 	{
 		"commandFragments" : 
 		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
 			{
 				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
 				"role" : "libraries"
