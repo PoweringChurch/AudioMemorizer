@@ -76,90 +76,90 @@ CMakeFiles/Main.dir/src/main.cpp.obj: CMakeFiles/Main.dir/includes_CXX.rsp
 CMakeFiles/Main.dir/src/main.cpp.obj: D:/Else/AudioMemorizer/src/main.cpp
 CMakeFiles/Main.dir/src/main.cpp.obj: CMakeFiles/Main.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Else\AudioMemorizer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Main.dir/src/main.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Main.dir/src/main.cpp.obj -MF CMakeFiles\Main.dir\src\main.cpp.obj.d -o CMakeFiles\Main.dir\src\main.cpp.obj -c D:\Else\AudioMemorizer\src\main.cpp
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Main.dir/src/main.cpp.obj -MF CMakeFiles\Main.dir\src\main.cpp.obj.d -o CMakeFiles\Main.dir\src\main.cpp.obj -c D:\Else\AudioMemorizer\src\main.cpp
 
 CMakeFiles/Main.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Main.dir/src/main.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Else\AudioMemorizer\src\main.cpp > CMakeFiles\Main.dir\src\main.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Else\AudioMemorizer\src\main.cpp > CMakeFiles\Main.dir\src\main.cpp.i
 
 CMakeFiles/Main.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Main.dir/src/main.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Else\AudioMemorizer\src\main.cpp -o CMakeFiles\Main.dir\src\main.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Else\AudioMemorizer\src\main.cpp -o CMakeFiles\Main.dir\src\main.cpp.s
 
 CMakeFiles/Main.dir/src/analyzer.cpp.obj: CMakeFiles/Main.dir/flags.make
 CMakeFiles/Main.dir/src/analyzer.cpp.obj: CMakeFiles/Main.dir/includes_CXX.rsp
 CMakeFiles/Main.dir/src/analyzer.cpp.obj: D:/Else/AudioMemorizer/src/analyzer.cpp
 CMakeFiles/Main.dir/src/analyzer.cpp.obj: CMakeFiles/Main.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Else\AudioMemorizer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Main.dir/src/analyzer.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Main.dir/src/analyzer.cpp.obj -MF CMakeFiles\Main.dir\src\analyzer.cpp.obj.d -o CMakeFiles\Main.dir\src\analyzer.cpp.obj -c D:\Else\AudioMemorizer\src\analyzer.cpp
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Main.dir/src/analyzer.cpp.obj -MF CMakeFiles\Main.dir\src\analyzer.cpp.obj.d -o CMakeFiles\Main.dir\src\analyzer.cpp.obj -c D:\Else\AudioMemorizer\src\analyzer.cpp
 
 CMakeFiles/Main.dir/src/analyzer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Main.dir/src/analyzer.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Else\AudioMemorizer\src\analyzer.cpp > CMakeFiles\Main.dir\src\analyzer.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Else\AudioMemorizer\src\analyzer.cpp > CMakeFiles\Main.dir\src\analyzer.cpp.i
 
 CMakeFiles/Main.dir/src/analyzer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Main.dir/src/analyzer.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Else\AudioMemorizer\src\analyzer.cpp -o CMakeFiles\Main.dir\src\analyzer.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Else\AudioMemorizer\src\analyzer.cpp -o CMakeFiles\Main.dir\src\analyzer.cpp.s
 
 CMakeFiles/Main.dir/src/processor.cpp.obj: CMakeFiles/Main.dir/flags.make
 CMakeFiles/Main.dir/src/processor.cpp.obj: CMakeFiles/Main.dir/includes_CXX.rsp
 CMakeFiles/Main.dir/src/processor.cpp.obj: D:/Else/AudioMemorizer/src/processor.cpp
 CMakeFiles/Main.dir/src/processor.cpp.obj: CMakeFiles/Main.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Else\AudioMemorizer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Main.dir/src/processor.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Main.dir/src/processor.cpp.obj -MF CMakeFiles\Main.dir\src\processor.cpp.obj.d -o CMakeFiles\Main.dir\src\processor.cpp.obj -c D:\Else\AudioMemorizer\src\processor.cpp
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Main.dir/src/processor.cpp.obj -MF CMakeFiles\Main.dir\src\processor.cpp.obj.d -o CMakeFiles\Main.dir\src\processor.cpp.obj -c D:\Else\AudioMemorizer\src\processor.cpp
 
 CMakeFiles/Main.dir/src/processor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Main.dir/src/processor.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Else\AudioMemorizer\src\processor.cpp > CMakeFiles\Main.dir\src\processor.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Else\AudioMemorizer\src\processor.cpp > CMakeFiles\Main.dir\src\processor.cpp.i
 
 CMakeFiles/Main.dir/src/processor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Main.dir/src/processor.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Else\AudioMemorizer\src\processor.cpp -o CMakeFiles\Main.dir\src\processor.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Else\AudioMemorizer\src\processor.cpp -o CMakeFiles\Main.dir\src\processor.cpp.s
 
 CMakeFiles/Main.dir/src/comparator.cpp.obj: CMakeFiles/Main.dir/flags.make
 CMakeFiles/Main.dir/src/comparator.cpp.obj: CMakeFiles/Main.dir/includes_CXX.rsp
 CMakeFiles/Main.dir/src/comparator.cpp.obj: D:/Else/AudioMemorizer/src/comparator.cpp
 CMakeFiles/Main.dir/src/comparator.cpp.obj: CMakeFiles/Main.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Else\AudioMemorizer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Main.dir/src/comparator.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Main.dir/src/comparator.cpp.obj -MF CMakeFiles\Main.dir\src\comparator.cpp.obj.d -o CMakeFiles\Main.dir\src\comparator.cpp.obj -c D:\Else\AudioMemorizer\src\comparator.cpp
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Main.dir/src/comparator.cpp.obj -MF CMakeFiles\Main.dir\src\comparator.cpp.obj.d -o CMakeFiles\Main.dir\src\comparator.cpp.obj -c D:\Else\AudioMemorizer\src\comparator.cpp
 
 CMakeFiles/Main.dir/src/comparator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Main.dir/src/comparator.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Else\AudioMemorizer\src\comparator.cpp > CMakeFiles\Main.dir\src\comparator.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Else\AudioMemorizer\src\comparator.cpp > CMakeFiles\Main.dir\src\comparator.cpp.i
 
 CMakeFiles/Main.dir/src/comparator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Main.dir/src/comparator.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Else\AudioMemorizer\src\comparator.cpp -o CMakeFiles\Main.dir\src\comparator.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Else\AudioMemorizer\src\comparator.cpp -o CMakeFiles\Main.dir\src\comparator.cpp.s
 
 CMakeFiles/Main.dir/libs/kiss_fft.c.obj: CMakeFiles/Main.dir/flags.make
 CMakeFiles/Main.dir/libs/kiss_fft.c.obj: CMakeFiles/Main.dir/includes_C.rsp
 CMakeFiles/Main.dir/libs/kiss_fft.c.obj: D:/Else/AudioMemorizer/libs/kiss_fft.c
 CMakeFiles/Main.dir/libs/kiss_fft.c.obj: CMakeFiles/Main.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Else\AudioMemorizer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Main.dir/libs/kiss_fft.c.obj"
-	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Main.dir/libs/kiss_fft.c.obj -MF CMakeFiles\Main.dir\libs\kiss_fft.c.obj.d -o CMakeFiles\Main.dir\libs\kiss_fft.c.obj -c D:\Else\AudioMemorizer\libs\kiss_fft.c
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Main.dir/libs/kiss_fft.c.obj -MF CMakeFiles\Main.dir\libs\kiss_fft.c.obj.d -o CMakeFiles\Main.dir\libs\kiss_fft.c.obj -c D:\Else\AudioMemorizer\libs\kiss_fft.c
 
 CMakeFiles/Main.dir/libs/kiss_fft.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Main.dir/libs/kiss_fft.c.i"
-	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Else\AudioMemorizer\libs\kiss_fft.c > CMakeFiles\Main.dir\libs\kiss_fft.c.i
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Else\AudioMemorizer\libs\kiss_fft.c > CMakeFiles\Main.dir\libs\kiss_fft.c.i
 
 CMakeFiles/Main.dir/libs/kiss_fft.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Main.dir/libs/kiss_fft.c.s"
-	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Else\AudioMemorizer\libs\kiss_fft.c -o CMakeFiles\Main.dir\libs\kiss_fft.c.s
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Else\AudioMemorizer\libs\kiss_fft.c -o CMakeFiles\Main.dir\libs\kiss_fft.c.s
 
 CMakeFiles/Main.dir/libs/kiss_fftr.c.obj: CMakeFiles/Main.dir/flags.make
 CMakeFiles/Main.dir/libs/kiss_fftr.c.obj: CMakeFiles/Main.dir/includes_C.rsp
 CMakeFiles/Main.dir/libs/kiss_fftr.c.obj: D:/Else/AudioMemorizer/libs/kiss_fftr.c
 CMakeFiles/Main.dir/libs/kiss_fftr.c.obj: CMakeFiles/Main.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\Else\AudioMemorizer\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Main.dir/libs/kiss_fftr.c.obj"
-	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Main.dir/libs/kiss_fftr.c.obj -MF CMakeFiles\Main.dir\libs\kiss_fftr.c.obj.d -o CMakeFiles\Main.dir\libs\kiss_fftr.c.obj -c D:\Else\AudioMemorizer\libs\kiss_fftr.c
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/Main.dir/libs/kiss_fftr.c.obj -MF CMakeFiles\Main.dir\libs\kiss_fftr.c.obj.d -o CMakeFiles\Main.dir\libs\kiss_fftr.c.obj -c D:\Else\AudioMemorizer\libs\kiss_fftr.c
 
 CMakeFiles/Main.dir/libs/kiss_fftr.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/Main.dir/libs/kiss_fftr.c.i"
-	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Else\AudioMemorizer\libs\kiss_fftr.c > CMakeFiles\Main.dir\libs\kiss_fftr.c.i
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Else\AudioMemorizer\libs\kiss_fftr.c > CMakeFiles\Main.dir\libs\kiss_fftr.c.i
 
 CMakeFiles/Main.dir/libs/kiss_fftr.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/Main.dir/libs/kiss_fftr.c.s"
-	C:\msys64\ucrt64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Else\AudioMemorizer\libs\kiss_fftr.c -o CMakeFiles\Main.dir\libs\kiss_fftr.c.s
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Else\AudioMemorizer\libs\kiss_fftr.c -o CMakeFiles\Main.dir\libs\kiss_fftr.c.s
 
 # Object files for target Main
 Main_OBJECTS = \

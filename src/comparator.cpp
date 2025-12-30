@@ -1,129 +1,113 @@
 #include "comparator.h"
 
-constexpr float SIMILARITY_THRESHOLD = 0.1f;  // Adjust as needed
-constexpr float QUANTISE = 1.0f;
-
+size_t hash_fingerprint(float anchor, const vector<float>& pattern) {
+    size_t h = hash<int>{}(static_cast<int>(anchor / FREQ_TOLERANCE));
+    for (float f : pattern) {
+        h ^= hash<int>{}(static_cast<int>(f / FREQ_TOLERANCE)) + 0x9e3779b9 + (h << 6) + (h >> 2);
+    }
+    return h;
+}
+unordered_map<size_t, vector<Fingerprint>> compute_fingerprints(const vector<vector<float>>& chunk) {
+    unordered_map<size_t, vector<Fingerprint>> fingerprints;
+    for (int i = 0; i < chunk.size() - 1; i++) {
+        for (float anchorFreq : chunk[i]) {
+            vector<float> pattern;
+            for (int j = i + 1; j < min((int)chunk.size(), i + 4); j++) {
+                if (!chunk[j].empty()) {
+                    pattern.push_back(chunk[j][0]);
+                }
+            }
+            if (pattern.size() < 3) continue;
+            Fingerprint fp = {anchorFreq, pattern, i};
+            size_t hash = hash_fingerprint(anchorFreq, pattern);
+            fingerprints[hash].push_back(fp);
+        }
+    }
+    return fingerprints;
+}
 int Comparator::find_best_match(const vector<vector<float>>& queryChunk) {
     int bestMatch = -1;
     float bestScore = 0;
+    //construct query AudioClip
+    AudioClip queryClip = AudioClip();
+    queryClip.fingerprints = compute_fingerprints(queryChunk);
+    if (queryClip.fingerprints.size() <= 4) return -2; //too short, invalid chunk
+
+    //get timestamp
+    auto now = chrono::system_clock::now();
+    auto ms = chrono::duration_cast<chrono::milliseconds>(now.time_since_epoch()).count();
+    queryClip.timeStamp = static_cast<uint64_t>(ms);
+    //compare2
+    cout << "fingerprints size : " << queryClip.fingerprints.size() << endl;
     for (int i = 0; i < storedClips.size(); i++) {
-        float score = compare_chunk(queryChunk, storedClips[i].chunk);
-        if (score > bestScore && score > SIMILARITY_THRESHOLD) {
+        float score = compare_fingerprints(queryClip.fingerprints, storedClips[i].fingerprints);
+        if (score > 0.001)
+            cout << storedClips[i].clipId << " comparison score : " << score << endl;
+        if (score > bestScore && score > SIMILARITY_MINIMUM) { //if it has the best score so far and its higher than the minimum
             bestScore = score;
             bestMatch = storedClips[i].clipId;
         }
     }
+    //output
+    if (bestMatch == -1) {
+        //store
+        queryClip.clipId = nextId;
+        cout << RED << "match not found, stored clip at id : " << nextId << RESET << endl;
+        nextId++;
+        storedClips.push_back(move(queryClip));
+
+    } else {
+        cout << GREEN << "match found, id: " << bestMatch << RESET << endl;
+    }
+    cout << "best score: "<< bestScore << endl;
     return bestMatch;
 }
-float Comparator::compare_chunk(const vector<vector<float>>& a, const vector<vector<float>>& b) {
-    if (a.size() <= 1 || b.size() <= 1) return 0.0f;
-    int matchScore = 0;
-    const float FREQ_TOLERANCE = 50.0f;  // Peaks within 50Hz are same enough
-    // For each time slice in 'a'
-    for (int i = 0; i < a.size() - 1; i++) {
-        // For each peak in that slice
-        for (float anchorFreq : a[i]) {
-            // Look for the next 3 peaks in future slices (constellation)
-            vector<float> pattern;
-            for (int j = i + 1; j < min((int)a.size(), i + 4); j++) {
-                if (!a[j].empty()) {
-                    pattern.push_back(a[j][0]);  // Take first peak from next slices
-                }
-            }
-            if (pattern.size() < 3) continue;  // Need at least 3 points
-            // Search for this constellation in 'b'
-            for (int ki = 0; ki < b.size() - 1; ki++) {
-                // Look for anchor frequency in this slice
-                for (float bAnchor : b[ki]) {
-                    if (abs(anchorFreq - bAnchor) < FREQ_TOLERANCE) {
-                        // Found anchor! Check if pattern matches
-                        int localMatches = 0;
-                        for (int px = 0; px < pattern.size() && ki + px + 1 < b.size(); px++) {
-                            for (float bFreq : b[ki + px + 1]) {
-                                if (abs(pattern[px] - bFreq) < FREQ_TOLERANCE) {
-                                    localMatches++;
-                                    break;
-                                }
-                            }
-                        }
-                        if (localMatches >= 2) matchScore++;
-                    }
-                }
-            }
-        }
-    }
-    return (float)matchScore / max(a.size(), b.size());
-}
-/* I HATE EVERYTHING
-float Comparator::compare_chunk(const vector<vector<float>>& a, const vector<vector<float>>& b) {
 
-    constexpr int lookForward = 1;
-    constexpr int required_points = 4;
-    constexpr int max_lookahead = 2;
-    constexpr int min_local_matches = 3;
+float Comparator::compare_fingerprints(const unordered_map<size_t, vector<Fingerprint>>& a, const unordered_map<size_t, vector<Fingerprint>>& b) {
+    if (a.empty() || b.empty()) return 0.0f;
 
-    //exit if too small
-    if (a.size() <= lookForward || b.size() <= lookForward) {
-        return 0.0f;
-    }
-    compute_indices(a, b);
-    float matchScore = 0;
+    size_t fpCountA = 0;
+    size_t fpCountB = 0;
+    for (const auto& [_, fps] : a) fpCountA += fps.size();
+    for (const auto& [_, fps] : b) fpCountB += fps.size();
+    if (fpCountA == 0 || fpCountB == 0) return 0.0f;
     
-    //loop through slices of a
-    for (int i = 0; i < a.size()-lookForward; i++) {
-        for (int anchor : quantise_indices_a[i]) {
-            //find a pattern in a
-            vector<int> points;
-            points.reserve(required_points);
+    int matchScore = 0;
+    //for each fingerprint (kv pair) in a
+    for (const auto& [hash, fingerprints_a] : a) {
+        //check if this hash exists in fingerprint set b
+        auto it = b.find(hash); //look up hash in b
+        if (it == b.end()) continue; //if doesnt exist in b, skip
+        const vector<Fingerprint>& fingerprints_b = it->second; //get a read only reference to the fingerprints stored
+        
+        //compare fingerprints (value) a and b
+        for (const Fingerprint& fp_a : fingerprints_a) {
+            for (const Fingerprint& fp_b : fingerprints_b) {
+                //verify anchor frequency is actually close (handling hash collisions)
+                if (fabs(fp_a.anchorFreq - fp_b.anchorFreq) >= FREQ_TOLERANCE) continue; //probably gonna have to improve
+                //count how many pattern frequencies match
+                int localMatches = 0;
+                int minSize = min(fp_a.pattern.size(), fp_b.pattern.size());
+                if (minSize == 0) continue; //this shouldnt ever occur
 
-            int j = 0;
-            int search_start = anchor;
-            
-            while (points.size() < required_points && j < max_lookahead) {
-                if (i + j >= a.size()) break; //bounds check
-
-                auto& indices = quantise_indices_a[i + j];
-                auto it = upper_bound(indices.begin(), indices.end(), search_start);
-                if (it != indices.end()) {
-                    points.push_back(*it);
-                    search_start = *it;
-                } else {
-                    j++;
-                    search_start = anchor; //reset search position for next row
-                }
-            }
-            
-            if (points.size() == required_points) {
-            //search for pattern in 'b'
-            for (int ki = 1; ki < b.size() - lookForward; ki++) {
-                //check if anchor position in b has QUANTISE & use binary search on computed indeces
-                auto& b_indices = quantise_indices_b[ki];
-                if (binary_search(b_indices.begin(), b_indices.end(), anchor)) {
-                    int localMatchScore = 0;
-
-                    //check if the pattern points also match in b
-                    for (int px = 0; px < required_points; px++) {
-                        for (int sx = 0; sx < lookForward + 1; sx++) {
-                            if (ki + sx >= b.size()) break; //bounds check
-                            
-                            auto& check_indices = quantise_indices_b[ki + sx];
-                            if (binary_search(check_indices.begin(), check_indices.end(), points[px]))
-                                localMatchScore++;
-                        }
+                for (int px = 0; px < minSize; px++) {
+                    if (fabs(fp_a.pattern[px] - fp_b.pattern[px]) < FREQ_TOLERANCE) {
+                        localMatches++;
                     }
-                    if (localMatchScore > min_local_matches)
-                    matchScore++;
                 }
+                float ratio = localMatches / float(minSize);
+                if (ratio >= 0.6f) {matchScore++; break;}
             }
         }
     }
-    return matchScore / b.size();
+    return (float)matchScore / max(fpCountA,fpCountB);
 }
-*/
 
-/* js
+
+/* js that this is based on
 note that noisePrints[name] is effectively equivalent to a
-in other news, i loathe js.
+
+in other news, i loathe js
 function matchClip(name) {
     console.clear();
     $(".output").html("");

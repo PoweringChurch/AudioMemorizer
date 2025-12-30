@@ -3,6 +3,6 @@
 
 constexpr int FFT_SIZE = 2048;
 constexpr float AMPLITUDE_THRESHOLD = 0.02f;
-constexpr float SEPERATION_THRESHOLD = 0.1f;
+constexpr float SEPERATION_THRESHOLD = 0.03f;
 
 #endif
